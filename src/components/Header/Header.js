@@ -9,6 +9,7 @@ const authenticatedOptions = (
     <Nav.Link href="#create-survey">Make Survey</Nav.Link>
     <Nav.Link href="#surveys">View All Surveys</Nav.Link>
     <Nav.Link href='#create-cheesewheel'>Cheesewheel Me</Nav.Link>
+    <Nav.Link href="#cheesewheels">Your Cheese Plate</Nav.Link>
   </Fragment>
 )
 
