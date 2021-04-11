@@ -1,15 +1,20 @@
 import React, { Fragment } from 'react'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
+import { Nav, Navbar, Dropdown, DropdownButton } from 'react-bootstrap'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#change-password">Change Password</Nav.Link>
-    <Nav.Link href="#sign-out">Sign Out</Nav.Link>
-    <Nav.Link href="#create-survey">Make Survey</Nav.Link>
-    <Nav.Link href="#surveys">View All Surveys</Nav.Link>
-    <Nav.Link href='#create-cheesewheel'>Cheesewheel Me</Nav.Link>
-    <Nav.Link href="#cheesewheels">Your Cheese Plate</Nav.Link>
+    <DropdownButton id='userMenu' title='userOptions'>
+      <Dropdown.Item href="#change-password">Change Password</Dropdown.Item>
+      <Dropdown.Item href="#sign-out">Sign Out</Dropdown.Item>
+    </DropdownButton>
+    <DropdownButton id='surveyMenu' title='surveyOptions'>
+      <Dropdown.Item href="#create-survey">Make Survey</Dropdown.Item>
+      <Dropdown.Item href="#surveys">View All Surveys</Dropdown.Item>
+    </DropdownButton>
+    <DropdownButton alignRight id='cheeseWheelMenu' title='Cheese Plate'>
+      <Dropdown.Item href='#create-cheesewheel'>Cheesewheel Me</Dropdown.Item>
+      <Dropdown.Item href="#cheesewheels">Your Cheese Plate</Dropdown.Item>
+    </DropdownButton>
   </Fragment>
 )
 
