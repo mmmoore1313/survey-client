@@ -29,3 +29,10 @@ export const cwIndex = (user) => {
     }
   })
 }
+
+export const cwShow = (id) => {
+  return axios({
+    url: apiUrl + '/cheesewheels/' + id,
+    method: 'GET'
+  })
+}
