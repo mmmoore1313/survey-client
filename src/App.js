@@ -18,6 +18,7 @@ import SurveyShow from './components/routes/SurveyShow'
 import SurveyUpdate from './components/routes/SurveyUpdate'
 import SurveyIndex from './components/routes/SurveyIndex'
 import CwCreate from './components/routes/CheeseWheel/cwCreate'
+import CwIndex from './components/routes/CheeseWheel/cwIndex'
 
 class App extends Component {
   constructor (props) {
@@ -99,6 +100,10 @@ class App extends Component {
           {/* create a cheesewheel */}
           <AuthenticatedRoute user={user} path='/create-cheesewheel' render={() => (
             <CwCreate msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* Show ALL surveys */}
+          <AuthenticatedRoute user={user} exact path='/cheesewheels' render={() => (
+            <CwIndex msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
