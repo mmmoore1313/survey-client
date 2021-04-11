@@ -19,3 +19,13 @@ export const cwCreate = (cheesewheel, user) => {
     }
   })
 }
+
+export const cwIndex = (user) => {
+  return axios({
+    url: apiUrl + '/cheesewheels',
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
