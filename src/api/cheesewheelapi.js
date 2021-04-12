@@ -6,7 +6,6 @@ export const cwCreate = (cheesewheel, user) => {
   return axios({
     url: apiUrl + '/cheesewheels',
     method: 'POST',
-    // Add an authorization header
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
