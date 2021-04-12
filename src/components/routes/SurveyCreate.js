@@ -27,11 +27,8 @@ class SurveyCreate extends Component {
 
     // create survey, pass it the survey data and the user for the token
     surveyCreate(survey, user)
-    // set the createdId to the id of the survey that was just created
       .then(res => {
         this.setState({ surveyId: res.data.survey._id })
-        // pass the response to the .then so we can show survey title
-        // // console.log(res.data.survey)
         return res
       })
       .then(res => msgAlert({
