@@ -35,7 +35,7 @@ class CwUpdate extends Component {
     event.preventDefault()
 
     const { user, match, msgAlert } = this.props
-    const { cheesewheel } = this.setState
+    const { cheesewheel } = this.state
 
     cwUpdate(match.params.id, cheesewheel, user)
       .then(res => this.setState({ updated: true }))
