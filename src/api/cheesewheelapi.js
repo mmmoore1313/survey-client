@@ -36,3 +36,30 @@ export const cwShow = (id) => {
     method: 'GET'
   })
 }
+
+export const cwUpdate = (id, cheesewheel, user) => {
+  return axios({
+    url: apiUrl + '/cheesewheels/' + id,
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+    data: {
+      cheesewheel: {
+        variety: cheesewheel.variety,
+        age: cheesewheel.age,
+        health: cheesewheel.health
+      }
+    }
+  })
+}
+
+export const cwDelete = (id, user) => {
+  return axios({
+    url: apiUrl + '/cheesewheels/' + id,
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
