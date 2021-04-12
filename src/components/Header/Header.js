@@ -12,7 +12,7 @@ const authenticatedOptions = (
       <Dropdown.Item href="#surveys">View All Surveys</Dropdown.Item>
     </DropdownButton>
     <DropdownButton alignRight id='cheeseWheelMenu' title='Cheese Plate'>
-      <Dropdown.Item href='#create-cheesewheel'>Cheesewheel Me</Dropdown.Item>
+      <Dropdown.Item href='#create-cheesewheel'>Make Me a CheeseWheel</Dropdown.Item>
       <Dropdown.Item href="#cheesewheels">Your Cheese Plate</Dropdown.Item>
     </DropdownButton>
   </Fragment>
