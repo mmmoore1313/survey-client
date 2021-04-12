@@ -18,6 +18,9 @@ import SurveyShow from './components/routes/SurveyShow'
 import SurveyUpdate from './components/routes/SurveyUpdate'
 import SurveyIndex from './components/routes/SurveyIndex'
 import CwCreate from './components/routes/CheeseWheel/cwCreate'
+import CwIndex from './components/routes/CheeseWheel/cwIndex'
+import CwShow from './components/routes/CheeseWheel/cwShow'
+import CwUpdate from './components/routes/CheeseWheel/cwUpdate'
 
 class App extends Component {
   constructor (props) {
@@ -62,44 +65,66 @@ class App extends Component {
           />
         ))}
         <main className="container">
-          <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route path='/take-survey' render={() => (
-            <TakeAsurvey msgAlert={this.msgAlert}/>
-          )} />
-          <Route exact path='/response/:surveyID/:participantID' render={() => (
-            <SurveyResponse msgAlert={this.msgAlert}/>
-          )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* create a survey */}
-          <AuthenticatedRoute user={user} path='/create-survey' render={() => (
-            <SurveyCreate msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* Update the survey */}
-          <AuthenticatedRoute user={user} exact path='/surveys/:id/edit' render={() => (
-            <SurveyUpdate msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* Show the survey */}
-          <AuthenticatedRoute user={user} exact path='/surveys/:id' render={() => (
-            <SurveyShow msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* Show ALL surveys */}
-          <AuthenticatedRoute user={user} exact path='/surveys' render={() => (
-            <SurveyIndex msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* create a cheesewheel */}
-          <AuthenticatedRoute user={user} path='/create-cheesewheel' render={() => (
-            <CwCreate msgAlert={this.msgAlert} user={user} />
-          )} />
+          <div id='signInUpRoutes'>
+            <Route path='/sign-up' render={() => (
+              <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+            )} />
+            <Route path='/sign-in' render={() => (
+              <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+            )} />
+          </div>
+          <div id='participantRoutes'>
+            <Route path='/take-survey' render={() => (
+              <TakeAsurvey msgAlert={this.msgAlert}/>
+            )} />
+            <Route exact path='/response/:surveyID/:participantID' render={() => (
+              <SurveyResponse msgAlert={this.msgAlert}/>
+            )} />
+          </div>
+          <div id='authUserRoutes'>
+            <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+              <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
+            )} />
+            <AuthenticatedRoute user={user} path='/change-password' render={() => (
+              <ChangePassword msgAlert={this.msgAlert} user={user} />
+            )} />
+          </div>
+          <div id='surveyRoutes'>
+            {/* create a survey */}
+            <AuthenticatedRoute user={user} path='/create-survey' render={() => (
+              <SurveyCreate msgAlert={this.msgAlert} user={user} />
+            )} />
+            {/* Update the survey */}
+            <AuthenticatedRoute user={user} exact path='/surveys/:id/edit' render={() => (
+              <SurveyUpdate msgAlert={this.msgAlert} user={user} />
+            )} />
+            {/* Show the survey */}
+            <AuthenticatedRoute user={user} exact path='/surveys/:id' render={() => (
+              <SurveyShow msgAlert={this.msgAlert} user={user} />
+            )} />
+            {/* Show ALL surveys */}
+            <AuthenticatedRoute user={user} exact path='/surveys' render={() => (
+              <SurveyIndex msgAlert={this.msgAlert} user={user} />
+            )} />
+          </div>
+          <div id='cheesewheelsroutes'>
+            {/* create a cheesewheel */}
+            <AuthenticatedRoute user={user} path='/create-cheesewheel' render={() => (
+              <CwCreate msgAlert={this.msgAlert} user={user} />
+            )} />
+            {/* Show ALL cheesewheels */}
+            <AuthenticatedRoute user={user} exact path='/cheesewheels' render={() => (
+              <CwIndex msgAlert={this.msgAlert} user={user} />
+            )} />
+            {/* Show one cheesewheel */}
+            <AuthenticatedRoute user={user} exact path='/cheesewheels/:id' render={() => (
+              <CwShow msgAlert={this.msgAlert} user={user} />
+            )} />
+            {/* Update the cheesewheel */}
+            <AuthenticatedRoute user={user} exact path='/cheesewheels/:id/edit' render={() => (
+              <CwUpdate msgAlert={this.msgAlert} user={user} />
+            )} />
+          </div>
         </main>
       </Fragment>
     )
