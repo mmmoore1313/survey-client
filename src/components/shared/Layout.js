@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
+import { Card, Container } from 'react-bootstrap'
 
 class Layout extends Component {
   constructor (props) {
@@ -19,7 +20,15 @@ class Layout extends Component {
       <Fragment>
         <h1>SurveyUs</h1>
         <Header user={user} />
-        <Home />
+        <Container>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body>
+              <Home user={user} />
+            </Card.Body>
+            <Card.Footer>
+            </Card.Footer>
+          </Card>
+        </Container>
         <Footer />
       </Fragment>
     )
