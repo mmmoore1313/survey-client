@@ -4,7 +4,6 @@ import { v4 as uuid } from 'uuid'
 // this is a comment
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
-import Header from './components/Header/Header'
 import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
@@ -21,6 +20,8 @@ import CwCreate from './components/routes/CheeseWheel/cwCreate'
 import CwIndex from './components/routes/CheeseWheel/cwIndex'
 import CwShow from './components/routes/CheeseWheel/cwShow'
 import CwUpdate from './components/routes/CheeseWheel/cwUpdate'
+import Layout from './components/shared/Layout'
+// import Header from './components/Header/Header'
 
 class App extends Component {
   constructor (props) {
@@ -53,7 +54,6 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header user={user} />
         {msgAlerts.map(msgAlert => (
           <AutoDismissAlert
             key={msgAlert.id}
@@ -64,6 +64,7 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
+        <Layout user={user} />
         <main className="container">
           <div id='signInUpRoutes'>
             <Route path='/sign-up' render={() => (
